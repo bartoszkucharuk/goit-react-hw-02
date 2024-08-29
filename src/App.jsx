@@ -1,12 +1,16 @@
 import { useState } from 'react'
-import Counter from './Options/Options.jsx'
+import Options from './Options/Options.jsx'
 import Description from "./Description/Description.jsx"
+import Feedback from "./Feedback/Feedback.jsx"
 
 function App() {
 
   return (
     <>
-      <Description />;
+      <Description />
+      <Options />
+      
+      <Feedback />
     </>
   )
 }
