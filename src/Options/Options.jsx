@@ -26,7 +26,8 @@ function Options() {
 			...values,
 			bad: values.bad + 1
 		});
-	};
+    };
+    
 
   return (
     <div>
