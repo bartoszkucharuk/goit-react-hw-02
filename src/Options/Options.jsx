@@ -4,7 +4,7 @@ function Options() {
           <button>Good</button>
           <button>Neutral</button>
           <button>Bad</button>
-          <button>Reset</button>
+
       <p>
       </p>
     </div>
