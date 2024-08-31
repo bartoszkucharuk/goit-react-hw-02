@@ -21,7 +21,7 @@ function App() {
   };
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positiveFeedback = Math.round(((feedback.good + feedback.neutral) / totalFeedback) * 100);
+  const positiveFeedback = totalFeedback ? Math.round(((feedback.good + feedback.neutral) / totalFeedback) * 100): 0 ;
   
   return (
     <>
