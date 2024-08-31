@@ -22,12 +22,13 @@ function App() {
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
   const positiveFeedback = totalFeedback ? Math.round(((feedback.good + feedback.neutral) / totalFeedback) * 100): 0 ;
-  
+  const feedbackReset = () => { setFeedback({ good: 0, neutral: 0, bad: 0, }) }
   return (
     <>
       <Description />
       <Options
-                  updateFeedback={updateFeedback} />
+        updateFeedback={updateFeedback}
+        feedbackReset={feedbackReset} />
       <Feedback
         feedback={feedback}
         totalFeedback={totalFeedback}
