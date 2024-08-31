@@ -1,4 +1,5 @@
 function Options({ updateFeedback, totalFeedback, feedbackReset }) {
+
   return (
     <div>
       <button onClick={() => updateFeedback("good")}>Good</button>

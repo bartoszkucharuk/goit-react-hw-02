@@ -4,11 +4,9 @@ import Description from "./Description/Description.jsx"
 import Feedback from "./Feedback/Feedback.jsx"
 
 function App() {
-  const [feedback, setFeedback] = useState(
-    { good: 0,
-      neutral: 0,
-      bad: 0,
-    });
+
+  const savedFeedback = window.localStorage.getItem("saved-feedback");
+  const [feedback, setFeedback] = useState(savedFeedback ? JSON.parse(savedFeedback) : { good: 0, neutral: 0, bad: 0 });
   
   const updateFeedback = (feedbackType) => {
     setFeedback((feedbackValues) => ({...feedbackValues, [feedbackType]: feedbackValues[feedbackType] + 1}))
@@ -24,12 +22,18 @@ function App() {
         bad: 0,
       });
   }
+
+  useEffect(() => {
+    window.localStorage.setItem("saved-feedback", JSON.stringify(feedback));
+  }, [feedback]);
+
   return (
     <>
       <Description />
       <Options
         updateFeedback={updateFeedback}
-        feedbackReset={feedbackReset} />
+        feedbackReset={feedbackReset}
+        totalFeedback={totalFeedback} />
       <Feedback
         feedback={feedback}
         totalFeedback={totalFeedback}
