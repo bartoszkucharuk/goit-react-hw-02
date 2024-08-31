@@ -5,8 +5,7 @@ function Options({ updateFeedback }) {
           <button onClick={() => updateFeedback("neutral")}>Neutral</button>
           <button onClick={() => updateFeedback("bad")}>Bad</button>
 
-      <p>
-      </p>
+
     </div>
   );
 };

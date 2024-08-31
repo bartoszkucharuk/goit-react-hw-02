@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react'
+import {useState, useEffect } from 'react'
 import Options from './Options/Options.jsx'
 import Description from "./Description/Description.jsx"
 import Feedback from "./Feedback/Feedback.jsx"
 
 function App() {
   const [feedback, setFeedback] = useState(() => {
-    const savedFeedback = window.localStorage.getItem("saved-feedback");
-
-    if (savedFeedback !== null) {
-      return JSON.parse(savedFeedback);
+    const feedbackStorage = window.localStorage.getItem("feedback-storage");
+    if (feedbackStorage !== null) {
+      return JSON.parse(feedbackStorage);
     }
     return {
       good: 0,
@@ -21,14 +20,16 @@ function App() {
     setFeedback((feedbackValues) => ({...feedbackValues, [feedbackType]: feedbackValues[feedbackType] + 1}))
   };
 
-
+  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+  
   return (
     <>
       <Description />
       <Options
-        updateFeedback={updateFeedback} />
-      
-      <Feedback />
+                  updateFeedback={updateFeedback} />
+      <Feedback
+                  feedback={feedback}
+                  totalFeedback={totalFeedback}/>
     </>
   )
 }
