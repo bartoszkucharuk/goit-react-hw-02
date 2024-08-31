@@ -4,22 +4,22 @@ import Description from "./Description/Description.jsx"
 import Feedback from "./Feedback/Feedback.jsx"
 
 function App() {
-  const [feedback, setFeedback] = useState({
-      good: 0,
+  const [feedback, setFeedback] = useState(
+    { good: 0,
       neutral: 0,
       bad: 0,
     });
-
+  
   const updateFeedback = (feedbackType) => {
     setFeedback((feedbackValues) => ({...feedbackValues, [feedbackType]: feedbackValues[feedbackType] + 1}))
   };
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
   const positiveFeedback = totalFeedback ? Math.round(((feedback.good + feedback.neutral) / totalFeedback) * 100): 0 ;
+  
   const feedbackReset = () => {
     setFeedback(
-      {
-        good: 0,
+      { good: 0,
         neutral: 0,
         bad: 0,
       });

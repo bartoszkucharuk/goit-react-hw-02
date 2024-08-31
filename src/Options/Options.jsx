@@ -5,7 +5,7 @@ function Options({ updateFeedback, totalFeedback, feedbackReset }) {
       <button onClick={() => updateFeedback("neutral")}>Neutral</button>
       <button onClick={() => updateFeedback("bad")}>Bad</button>
         
-      {totalFeedback}<button onClick={feedbackReset}>Reset</button>
+      {totalFeedback > 0 && <button onClick={feedbackReset}>Reset</button>}
 
   </div>
   );
